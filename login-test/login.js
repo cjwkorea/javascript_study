@@ -110,9 +110,9 @@ function checkJoinFields(){
 // 로그인하기
 
 // 1. 로그인 버튼 함수 만들기
-function Log In() {
+function login() {
 
-    const requestLogin = requestLoginFields();
+    const requestLogin= requestLoginFields();
         if (!requestLogin()) {
           return;
     }
@@ -121,15 +121,19 @@ function Log In() {
     const loginUsernameElement = document.getElementById("loginUsername");
 // password
     const loginPasswordElement = document.getElementById("loginPassword");
+
+    
+    alert("로그인이 완료 되었습니다.")
 }
 
 // 2. 로그인 내용 체크 함수 만들기
 function requestLoginFields(){
 // 아이디가 없으면
-    if (userList === null) {
-        alert("아이디가 존재하지 않습니다.");
-        loginUsernameElement.value = "";
-        loginPasswordElement.value = "";
+    const loginUsernameElement = document.getElementById("loginUsername");
+    const loginPasswordElement = document.getElementById("loginPassword");
+
+    if (loginUsernameElement.value == "") {
+        alert("아이디를 입력해주세요.");
         loginUsernameElement.focus();
         return false ;
     }
@@ -138,4 +142,10 @@ function requestLoginFields(){
 
 
 // 비밀번호가 틀리면
+    if (loginPasswordElement.value == "") {
+        alert("password을 입력해주세요.");
+        loginPasswordElement.focus();
+        return false ;
+    }
+    return true;
 }
