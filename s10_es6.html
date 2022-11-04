@@ -102,9 +102,10 @@
         const [bar00, bar01, bar02] = underbar01;
 
         // 객체는 필드명을 기준으로 들어감
-        const {p_greeting, p_age} = meteor;
+        const {p_age, ...나머지} = meteor;
 
-        console.log(p_greeting("광열"));
+        console.log(p_age);
+        console.log(나머지);
 
     // 7. string 메서드
 
